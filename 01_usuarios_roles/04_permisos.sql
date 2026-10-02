@@ -1,9 +1,9 @@
 /*
   Permisos de minimo privilegio.
   Si las tablas estan en otro esquema, por ejemplo turismo, reemplace dbo.
-  Ejecutar con sqlcmd -v DatabaseName="TurismoPeru_TorrelEduardo" TableSchema="dbo"
+  Ejecutar con sqlcmd -v TableSchema="dbo"
 */
-USE [$(DatabaseName)];
+USE [TURISMOPERU_EMTC_V4];
 GO
 
 /* Vendedor: solo consulta y registra clientes y reservas. */

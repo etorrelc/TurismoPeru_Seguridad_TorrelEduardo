@@ -1,6 +1,6 @@
 # TurismoPeru Seguridad TorrelEduardo
 
-Proyecto de administracion y seguridad para la base de datos **TurismoPeru_TorrelEduardo**. Implementa usuarios, roles con minimo privilegio, importacion de clientes mediante BCP, scripts de respaldo y restauracion, pruebas de seguridad y un modulo Python para el analisis de clientes, reservas y pagos.
+Proyecto de administracion y seguridad para la base de datos **TURISMOPERU_EMTC_V4**. Implementa usuarios, roles con minimo privilegio, importacion de clientes mediante BCP, scripts de respaldo y restauracion, pruebas de seguridad y un modulo Python para el analisis de clientes, reservas y pagos.
 
 ## Tecnologias
 
@@ -11,7 +11,7 @@ Proyecto de administracion y seguridad para la base de datos **TurismoPeru_Torre
 
 ## Requisitos
 
-- Una instancia de SQL Server con la base `TurismoPeru_TorrelEduardo` y las tablas del modelo turistico.
+- Una instancia de SQL Server con la base `TURISMOPERU_EMTC_V4` y las tablas del modelo turistico.
 - Herramientas `sqlcmd`, `bcp` y SQLPackage instaladas y disponibles en PATH.
 - Python 3.10 o posterior si se utilizara el reporte Python.
 
@@ -35,10 +35,10 @@ Desde la raiz, reemplace las variables entre comillas por valores de su equipo. 
 
 ```powershell
 sqlcmd -S ".\SQLEXPRESS" -E -i .\01_usuarios_roles\01_logins.sql -v AdminPassword="CAMBIAR" VendedorPassword="CAMBIAR" AnalistaPassword="CAMBIAR"
-sqlcmd -S ".\SQLEXPRESS" -E -i .\01_usuarios_roles\02_users.sql -v DatabaseName="TurismoPeru_TorrelEduardo"
-sqlcmd -S ".\SQLEXPRESS" -E -i .\01_usuarios_roles\03_roles.sql -v DatabaseName="TurismoPeru_TorrelEduardo"
-sqlcmd -S ".\SQLEXPRESS" -E -i .\01_usuarios_roles\04_permisos.sql -v DatabaseName="TurismoPeru_TorrelEduardo" TableSchema="dbo"
-sqlcmd -S ".\SQLEXPRESS" -E -i .\04_seguridad\pruebas_permisos.sql -v DatabaseName="TurismoPeru_TorrelEduardo"
+sqlcmd -S ".\SQLEXPRESS" -E -i .\01_usuarios_roles\02_users.sql
+sqlcmd -S ".\SQLEXPRESS" -E -i .\01_usuarios_roles\03_roles.sql
+sqlcmd -S ".\SQLEXPRESS" -E -i .\01_usuarios_roles\04_permisos.sql -v TableSchema="dbo"
+sqlcmd -S ".\SQLEXPRESS" -E -i .\04_seguridad\pruebas_permisos.sql
 ```
 
 Ejecute `02_importacion_exportacion/importacion.sql` para crear el staging. Luego importe un CSV de cuatro columnas (`Documento`, `Nombres`, `ApellidoPaterno`, `ApellidoMaterno`) con el comando BCP documentado dentro de ese script y ejecute el bloque de validacion e insercion.
@@ -49,7 +49,7 @@ Asignar `db_owner` al vendedor o al analista seria inadecuado porque ese rol per
 
 ## Backups y restauracion
 
-Ejecute `03_backups/backup_full.sql` y `backup_diferencial.sql` con `DatabaseName` y `BackupPath`. El backup completo nativo genera `.bak`; para el BACPAC solicitado use el comando SQLPackage documentado en `backup_full.sql`. Guarde el BACPAC fuera de Git si contiene datos reales. Para recuperar, revise primero los nombres logicos con `RESTORE FILELISTONLY` y luego adapte y ejecute `03_backups/restauracion.sql`.
+Ejecute `03_backups/backup_full.sql` y `backup_diferencial.sql` con `BackupPath`. El backup completo nativo genera `.bak`; para el BACPAC solicitado use el comando SQLPackage documentado en `backup_full.sql`. Guarde el BACPAC fuera de Git si contiene datos reales. Para recuperar, revise primero los nombres logicos con `RESTORE FILELISTONLY` y luego adapte y ejecute `03_backups/restauracion.sql`.
 
 ## Reporte Python
 

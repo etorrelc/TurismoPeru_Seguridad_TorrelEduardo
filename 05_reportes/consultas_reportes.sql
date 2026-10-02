@@ -3,7 +3,7 @@
   Modelo esperado: cliente -> persona, cliente -> reserva, reserva -> pago.
   Ajuste los nombres de claves y columnas si su base de datos usa otra nomenclatura.
 */
-USE [$(DatabaseName)];
+USE [TURISMOPERU_EMTC_V4];
 GO
 
 CREATE OR ALTER VIEW dbo.vw_reporte_clientes_reservas_pagos

@@ -1,7 +1,7 @@
 /* Backup completo nativo. Ajuste BackupPath a una carpeta existente y con permisos para SQL Server. */
 USE [master];
 GO
-DECLARE @DatabaseName SYSNAME = N'$(DatabaseName)';
+DECLARE @DatabaseName SYSNAME = N'TURISMOPERU_EMTC_V4';
 DECLARE @BackupPath NVARCHAR(260) = N'$(BackupPath)';
 DECLARE @FileName NVARCHAR(400) = @BackupPath + N'\\' + @DatabaseName + N'_Full.bak';
 DECLARE @sql NVARCHAR(MAX) = N'BACKUP DATABASE ' + QUOTENAME(@DatabaseName)
@@ -12,6 +12,6 @@ GO
 
 /*
   Exportacion BACPAC: SQLPackage se ejecuta desde consola, no mediante T-SQL.
-  SqlPackage /Action:Export /SourceServerName:"localhost\\SQLEXPRESS" /SourceDatabaseName:"$(DatabaseName)"
-             /TargetFile:"C:\\Respaldos\\$(DatabaseName)_Full.bacpac"
+  SqlPackage /Action:Export /SourceServerName:"localhost\\SQLEXPRESS" /SourceDatabaseName:"TURISMOPERU_EMTC_V4"
+             /TargetFile:"C:\\Respaldos\\TURISMOPERU_EMTC_V4_Full.bacpac"
 */

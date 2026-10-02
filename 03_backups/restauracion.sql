@@ -4,7 +4,7 @@
 */
 USE [master];
 GO
-DECLARE @DatabaseName SYSNAME = N'$(DatabaseName)';
+DECLARE @DatabaseName SYSNAME = N'TURISMOPERU_EMTC_V4';
 DECLARE @FullBackup NVARCHAR(260) = N'$(FullBackupPath)';
 DECLARE @DataFile NVARCHAR(260) = N'$(DataFilePath)';
 DECLARE @LogFile NVARCHAR(260) = N'$(LogFilePath)';
@@ -22,5 +22,5 @@ EXEC sys.sp_executesql @sql;
 GO
 
 /* Para restaurar tambien un diferencial, cambie RECOVERY por NORECOVERY arriba y ejecute:
-RESTORE DATABASE [$(DatabaseName)] FROM DISK = N'$(DifferentialBackupPath)' WITH RECOVERY, STATS = 10;
+RESTORE DATABASE [TURISMOPERU_EMTC_V4] FROM DISK = N'$(DifferentialBackupPath)' WITH RECOVERY, STATS = 10;
 */

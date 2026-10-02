@@ -1,5 +1,5 @@
 /* Ejecutar despues de crear usuarios, roles y permisos. */
-USE [$(DatabaseName)];
+USE [TURISMOPERU_EMTC_V4];
 GO
 
 /* El analista puede consultar. */

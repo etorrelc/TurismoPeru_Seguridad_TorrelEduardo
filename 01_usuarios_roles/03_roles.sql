@@ -1,5 +1,5 @@
-/* Ejecutar con sqlcmd -v DatabaseName="TurismoPeru_TorrelEduardo" */
-USE [$(DatabaseName)];
+/* Ejecutar sobre la base de datos TURISMOPERU_EMTC_V4. */
+USE [TURISMOPERU_EMTC_V4];
 GO
 
 IF DATABASE_PRINCIPAL_ID(N'rol_vendedor') IS NULL

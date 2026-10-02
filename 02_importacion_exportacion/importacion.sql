@@ -4,7 +4,7 @@
   Este script asume que dbo.cliente tiene Documento, Nombres, ApellidoPaterno y ApellidoMaterno.
   Si su modelo separa Persona y Cliente, adapte solo el bloque final de insercion.
 */
-USE [$(DatabaseName)];
+USE [TURISMOPERU_EMTC_V4];
 GO
 
 IF OBJECT_ID(N'dbo.cliente_importacion', N'U') IS NULL
@@ -31,7 +31,7 @@ GO
 
 /*
   Ejemplo BCP (CSV con encabezado y cuatro columnas, separado por coma):
-  bcp "$(DatabaseName).dbo.cliente_importacion" in ".\\datos\\clientes.csv" -S "$(ServerName)" -T -c -t "," -r "\\n" -F 2
+  bcp "TURISMOPERU_EMTC_V4.dbo.cliente_importacion" in ".\\datos\\clientes.csv" -S "$(ServerName)" -T -c -t "," -r "\\n" -F 2
   Para autenticacion SQL, reemplace -T por -U usuario -P contrasena. No escriba secretos en este archivo.
 */
 
