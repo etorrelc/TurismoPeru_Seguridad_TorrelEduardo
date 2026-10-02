@@ -2,11 +2,11 @@
   Importacion con BCP hacia una tabla de staging.
   Ejecute primero el bloque de preparacion y despues el comando BCP indicado.
   El modelo usa EMTC_V4.persona y EMTC_V4.cliente.
-  Persona: id_persona, tipo_persona, nombre, apaterno, amaterno, id_tipo_documento,
+  Persona: id_persona, tipo_persona, nombres, apaterno, amaterno, id_tipo_documento,
   numero_documento, estado y fecha_registro.
   Cliente: id_persona y fecha_nacimiento.
   El archivo de carga es datos/clientes.csv y contiene Documento, Nombres,
-  ApellidoPaterno y ApellidoMaterno.
+  ApellidoPaterno, ApellidoMaterno y FechaNacimiento.
 */
 USE [TURISMOPERU_EMTC_V4];
 GO
@@ -17,9 +17,15 @@ BEGIN
         Documento        NVARCHAR(20)  NOT NULL,
         Nombres          NVARCHAR(100) NOT NULL,
         ApellidoPaterno  NVARCHAR(100) NOT NULL,
-        ApellidoMaterno  NVARCHAR(100) NULL
+        ApellidoMaterno  NVARCHAR(100) NULL,
+        FechaNacimiento  NVARCHAR(10)  NULL
     );
 END;
+GO
+
+/* Permite actualizar una tabla de staging creada antes de agregar FechaNacimiento. */
+IF COL_LENGTH(N'EMTC_V4.cliente_importacion', N'FechaNacimiento') IS NULL
+    ALTER TABLE EMTC_V4.cliente_importacion ADD FechaNacimiento NVARCHAR(10) NULL;
 GO
 
 IF OBJECT_ID(N'EMTC_V4.cliente_importacion_errores', N'U') IS NULL
@@ -34,7 +40,7 @@ END;
 GO
 
 /*
-  Ejemplo BCP (CSV con encabezado y cuatro columnas, separado por coma):
+  Ejemplo BCP (CSV con encabezado y cinco columnas, separado por coma):
   Ejecutar BCP en CMD o PowerShell, ajustando la instancia y la ruta del CSV:
   bcp "TURISMOPERU_EMTC_V4.EMTC_V4.cliente_importacion" in ".\datos\clientes.csv" -S "." -T -c -t "," -r "\n" -F 2 -u
   Para autenticacion SQL, reemplace -T por -U usuario -P contrasena. No escriba secretos en este archivo.
@@ -50,73 +56,81 @@ GO
 */
 DECLARE @TipoPersona NCHAR(1) = N'N';
 DECLARE @IdTipoDocumento INT = NULL;
-DECLARE @Estado BIT = 1;
-DECLARE @FechaNacimiento DATE = NULL;
+DECLARE @Estado VARCHAR(20) = 'ACTIVO';
+
+/* Los errores se guardan antes de la transaccion para que puedan revisarse aun si falla una insercion. */
+;WITH registros AS (
+    SELECT
+        Documento = NULLIF(LTRIM(RTRIM(Documento)), N''),
+        Nombres = NULLIF(LTRIM(RTRIM(Nombres)), N''),
+        ApellidoPaterno = NULLIF(LTRIM(RTRIM(ApellidoPaterno)), N''),
+        ApellidoMaterno = NULLIF(LTRIM(RTRIM(ApellidoMaterno)), N''),
+        FechaNacimientoTexto = NULLIF(LTRIM(RTRIM(FechaNacimiento)), N''),
+        FechaNacimiento = TRY_CONVERT(DATE, NULLIF(LTRIM(RTRIM(FechaNacimiento)), N''), 23),
+        RepetidosEnArchivo = COUNT(*) OVER (PARTITION BY NULLIF(LTRIM(RTRIM(Documento)), N''))
+    FROM EMTC_V4.cliente_importacion
+)
+INSERT INTO EMTC_V4.cliente_importacion_errores (Documento, Motivo)
+SELECT Documento,
+       CASE
+           WHEN Documento IS NULL THEN N'Documento vacio.'
+           WHEN Nombres IS NULL OR ApellidoPaterno IS NULL THEN N'Nombres y apellido paterno son obligatorios.'
+           WHEN FechaNacimientoTexto IS NULL THEN N'Fecha de nacimiento obligatoria.'
+           WHEN FechaNacimiento IS NULL THEN N'Fecha de nacimiento invalida. Use el formato AAAA-MM-DD.'
+           WHEN RepetidosEnArchivo > 1 THEN N'Documento duplicado dentro del archivo.'
+           WHEN EXISTS (
+               SELECT 1
+               FROM EMTC_V4.cliente AS c
+               INNER JOIN EMTC_V4.persona AS p ON p.id_persona = c.id_persona
+               WHERE p.numero_documento = registros.Documento
+           ) THEN N'Documento ya registrado como cliente.'
+       END
+FROM registros
+WHERE Documento IS NULL
+   OR Nombres IS NULL
+   OR ApellidoPaterno IS NULL
+   OR FechaNacimientoTexto IS NULL
+   OR FechaNacimiento IS NULL
+   OR RepetidosEnArchivo > 1
+   OR EXISTS (
+       SELECT 1
+       FROM EMTC_V4.cliente AS c
+       INNER JOIN EMTC_V4.persona AS p ON p.id_persona = c.id_persona
+       WHERE p.numero_documento = registros.Documento
+   );
+
+DECLARE @ClientesValidos TABLE (
+        Documento       NVARCHAR(20)  NOT NULL PRIMARY KEY,
+        Nombres         NVARCHAR(100) NOT NULL,
+        ApellidoPaterno NVARCHAR(100) NOT NULL,
+        ApellidoMaterno NVARCHAR(100) NULL,
+        FechaNacimiento DATE NOT NULL
+);
+
+INSERT INTO @ClientesValidos (Documento, Nombres, ApellidoPaterno, ApellidoMaterno, FechaNacimiento)
+SELECT DISTINCT
+    LTRIM(RTRIM(i.Documento)),
+    LTRIM(RTRIM(i.Nombres)),
+    LTRIM(RTRIM(i.ApellidoPaterno)),
+    NULLIF(LTRIM(RTRIM(i.ApellidoMaterno)), N''),
+    TRY_CONVERT(DATE, NULLIF(LTRIM(RTRIM(i.FechaNacimiento)), N''), 23)
+FROM EMTC_V4.cliente_importacion AS i
+WHERE NULLIF(LTRIM(RTRIM(i.Documento)), N'') IS NOT NULL
+  AND NULLIF(LTRIM(RTRIM(i.Nombres)), N'') IS NOT NULL
+  AND NULLIF(LTRIM(RTRIM(i.ApellidoPaterno)), N'') IS NOT NULL
+  AND NOT EXISTS (
+      SELECT 1
+      FROM EMTC_V4.cliente_importacion_errores AS e
+      WHERE e.Documento = LTRIM(RTRIM(i.Documento))
+  );
 
 BEGIN TRY
     BEGIN TRANSACTION;
 
-    ;WITH registros AS (
-        SELECT
-            Documento = NULLIF(LTRIM(RTRIM(Documento)), N''),
-            Nombres = NULLIF(LTRIM(RTRIM(Nombres)), N''),
-            ApellidoPaterno = NULLIF(LTRIM(RTRIM(ApellidoPaterno)), N''),
-            ApellidoMaterno = NULLIF(LTRIM(RTRIM(ApellidoMaterno)), N''),
-            RepetidosEnArchivo = COUNT(*) OVER (PARTITION BY NULLIF(LTRIM(RTRIM(Documento)), N''))
-        FROM EMTC_V4.cliente_importacion
-    )
-    INSERT INTO EMTC_V4.cliente_importacion_errores (Documento, Motivo)
-    SELECT Documento,
-           CASE
-               WHEN Documento IS NULL THEN N'Documento vacio.'
-               WHEN Nombres IS NULL OR ApellidoPaterno IS NULL THEN N'Nombres y apellido paterno son obligatorios.'
-               WHEN RepetidosEnArchivo > 1 THEN N'Documento duplicado dentro del archivo.'
-               WHEN EXISTS (
-                   SELECT 1
-                   FROM EMTC_V4.cliente AS c
-                   INNER JOIN EMTC_V4.persona AS p ON p.id_persona = c.id_persona
-                   WHERE p.numero_documento = registros.Documento
-               ) THEN N'Documento ya registrado como cliente.'
-           END
-    FROM registros
-    WHERE Documento IS NULL
-       OR Nombres IS NULL
-       OR ApellidoPaterno IS NULL
-       OR RepetidosEnArchivo > 1
-       OR EXISTS (
-           SELECT 1
-           FROM EMTC_V4.cliente AS c
-           INNER JOIN EMTC_V4.persona AS p ON p.id_persona = c.id_persona
-           WHERE p.numero_documento = registros.Documento
-       );
-
-    DECLARE @ClientesValidos TABLE (
-        Documento       NVARCHAR(20)  NOT NULL PRIMARY KEY,
-        Nombres         NVARCHAR(100) NOT NULL,
-        ApellidoPaterno NVARCHAR(100) NOT NULL,
-        ApellidoMaterno NVARCHAR(100) NULL
-    );
-
-    INSERT INTO @ClientesValidos (Documento, Nombres, ApellidoPaterno, ApellidoMaterno)
-    SELECT DISTINCT
-        LTRIM(RTRIM(i.Documento)),
-        LTRIM(RTRIM(i.Nombres)),
-        LTRIM(RTRIM(i.ApellidoPaterno)),
-        NULLIF(LTRIM(RTRIM(i.ApellidoMaterno)), N'')
-    FROM EMTC_V4.cliente_importacion AS i
-    WHERE NULLIF(LTRIM(RTRIM(i.Documento)), N'') IS NOT NULL
-      AND NULLIF(LTRIM(RTRIM(i.Nombres)), N'') IS NOT NULL
-      AND NULLIF(LTRIM(RTRIM(i.ApellidoPaterno)), N'') IS NOT NULL
-      AND NOT EXISTS (
-          SELECT 1
-          FROM EMTC_V4.cliente_importacion_errores AS e
-          WHERE e.Documento = LTRIM(RTRIM(i.Documento))
-      );
-
     /* Primero se crean las personas que aun no existen. */
     INSERT INTO EMTC_V4.persona (
         tipo_persona,
-        nombre,
+        nombres,
         apaterno,
         amaterno,
         id_tipo_documento,
@@ -142,7 +156,7 @@ BEGIN TRY
 
     /* Despues cada persona valida queda asociada como cliente. */
     INSERT INTO EMTC_V4.cliente (id_persona, fecha_nacimiento)
-    SELECT p.id_persona, @FechaNacimiento
+    SELECT p.id_persona, v.FechaNacimiento
     FROM @ClientesValidos AS v
     INNER JOIN EMTC_V4.persona AS p ON p.numero_documento = v.Documento
     WHERE NOT EXISTS (

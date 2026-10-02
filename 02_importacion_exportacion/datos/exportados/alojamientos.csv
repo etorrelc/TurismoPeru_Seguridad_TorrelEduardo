@@ -1,0 +1,30 @@
+﻿id_alojamiento,id_tipoalojamiento,Nombre,Telefono,Email,Categoria_Estrellas
+1,1,Hotel Gran Palma,01-2345678,reservas@granpalma.com,5
+2,1,Hotel Costa Azul,01-3456789,info@costaazul.com,4
+3,1,Hotel Los Andes,084-456789,contacto@losandes.com,4
+4,1,Hotel Miraflores Plaza,01-5678901,reservas@mirafloresplaza.com,5
+5,1,Hotel Colonial,054-678901,info@colonial.com,3
+6,1,Hotel El Viajero,01-7890123,contacto@elviajero.com,3
+7,1,Hotel San Martín,044-890123,reservas@sanmartin.com,2
+8,1,Hotel Económico Central,01-9012345,info@economicocentral.com,1
+9,2,Hostal Backpackers Cusco,084-123456,hostal@backpackerscusco.com,
+10,2,Hostal El Mochilero,01-234567,info@elmochilero.com,
+11,2,Hostal Luna Llena,054-345678,contacto@lunallenahostal.com,
+12,3,Cabañas del Bosque,064-456789,reservas@cabanasbosque.com,
+13,3,Cabañas Montaña Verde,084-567890,info@montanaverde.com,
+14,4,Apartamentos Miraflores Suites,01-678901,reservas@mirafloressuites.com,
+15,4,Apartamento San Isidro Premium,01-789012,info@sanisidropremium.com,
+16,4,Apartamentos Barranco Living,01-890123,contacto@barrancoliving.com,
+17,5,B&B La Casa de Abuela,084-901234,reservas@casadeabuela.com,
+18,5,B&B Valle Sagrado,084-012345,info@vallesagradobb.com,
+19,6,Glamping Amazonia Luxury,094-123456,reservas@amazonialuxury.com,
+20,6,Glamping Desert Stars,054-234567,info@desertstars.com,
+21,7,Casa de Campo El Huerto,064-345678,reservas@elhuerto.com,
+22,7,Casa de Campo Los Olivos,084-456789,info@losolivos.com,
+23,8,Villa Paraíso Beach,01-567890,reservas@paraisobeach.com,
+24,8,Villa Exclusiva Las Palmas,01-678901,info@laspalmasvilla.com,
+25,9,Resort Spa Paracas,056-789012,reservas@resortparacas.com,
+26,9,Resort All-Inclusive Mancora,073-890123,info@mancoraresort.com,
+27,10,Motel Ruta Panamericana,01-901234,contacto@rutapanamericana.com,
+28,11,Albergue Juvenil Lima Centro,01-012345,reservas@alberguelima.com,
+29,12,Posada del Camino Real,084-123456,info@caminoreal.com,

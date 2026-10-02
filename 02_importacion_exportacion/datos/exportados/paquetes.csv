@@ -1,0 +1,51 @@
+﻿id_paquete,nombre,descripcion,id_tipo_paquete,duracion_dias,duracion_noches,precio_base,precio_por_persona_adicional,capacidad_minima,capacidad_maxima,incluye_hospedaje,incluye_transporte,incluye_alimentacion,incluye_guia,estado,fecha_creacion
+1,Aventura Extrema en el Cañón del Colca,Experiencia de 4 días con rafting en el río Colca, canotaje, trekking hasta la Cruz del Cóndor y observación del vuelo del cóndor al amanecer.,1,4,3,1850.00,450.00,2,8,1,1,1,1,Activo,2026-06-19 03:44:33.437
+2,Trekking al Ausangate - Circuito Nevado,Ruta de alta montaña de 5 días alrededor del nevado Ausangate (6,372 msnm), con campamentos y lagunas turquesas.,1,5,4,2200.00,550.00,4,12,1,1,1,1,Activo,2026-06-19 03:44:33.437
+3,Canotaje en el Río Apurímac,Aventura de 3 días con rápidos clase III y IV, campamento ribereño y observación de fauna andina.,1,3,2,1450.00,380.00,4,10,1,1,1,1,Promocion,2026-06-19 03:44:33.437
+4,Sandboarding y Buggy en Huacachina,Experiencia de 2 días en el oasis con sandboarding, paseo en buggy y tabla en las dunas.,1,2,1,650.00,180.00,2,12,1,1,0,1,Activo,2026-06-19 03:44:33.437
+5,Ruta Moche - Señores del Norte,Tour cultural de 4 días por Trujillo y Chiclayo visitando Chan Chan, Huacas del Sol y la Luna, y Tumbas Reales de Sipán.,2,4,3,1950.00,480.00,2,10,1,1,1,1,Activo,2026-06-19 03:44:33.437
+6,Imperio Wari - Cuna de Civilizaciones,Recorrido de 3 días por Ayacucho explorando las ruinas Wari, Quinua y la Pampa de la Quinua.,2,3,2,1250.00,320.00,2,12,1,1,1,1,Activo,2026-06-19 03:44:33.437
+7,Chachapoyas Mística,Aventura cultural de 5 días visitando Kuélap, Catarata Gocta, Sarcófagos de Karajía y Revash.,2,5,4,2400.00,600.00,2,10,1,1,1,1,Activo,2026-06-19 03:44:33.437
+8,Cajamarca Imperial y Colonial,Tour de 3 días por el Cuarto del Rescate, Cumbemayo, Ventanillas de Otuzco y Baños del Inca.,2,3,2,1350.00,350.00,2,12,1,1,1,1,Promocion,2026-06-19 03:44:33.437
+9,Spa y Termas en el Valle del Colca,Retiro de 4 días con aguas termales de La Calera, masajes andinos, yoga y meditación.,3,4,3,2100.00,520.00,2,8,1,1,1,0,Activo,2026-06-19 03:44:33.437
+10,Wellness en Paracas y Huacachina,Escapada de 3 días con tratamientos de barro, spa en resort y paseos por el oasis.,3,3,2,1650.00,420.00,2,6,1,1,1,0,Activo,2026-06-19 03:44:33.437
+11,Retiro Zen en el Valle Sagrado,Experiencia de 5 días con yoga, meditación, alimentación orgánica y conexión con la naturaleza.,3,5,4,2800.00,700.00,2,8,1,1,1,1,Activo,2026-06-19 03:44:33.437
+12,Lima Familiar - Diversión para Todos,Tour de 3 días con visita al Parque de la Reserva, Circuito Mágico, Museo Larco y zoológico de Huachipa.,4,3,2,1100.00,280.00,2,6,1,1,1,1,Activo,2026-06-19 03:44:33.437
+13,Arequipa en Familia,Aventura familiar de 4 días con visita al Cañón del Colca, Monasterio de Santa Catalina y volcán Misti.,4,4,3,1750.00,440.00,2,8,1,1,1,1,Promocion,2026-06-19 03:44:33.437
+14,Amazonía Familiar - Iquitos,Experiencia de 5 días en la selva con avistamiento de delfines rosados, visita a comunidades y paseo en barco.,4,5,4,2300.00,580.00,2,8,1,1,1,1,Activo,2026-06-19 03:44:33.437
+15,Cusco Kids - Aventura Educativa,Tour de 4 días con visita a Machu Picchu, Valle Sagrado, Mercado de San Pedro y taller de textiles.,4,4,3,1950.00,490.00,2,8,1,1,1,1,Activo,2026-06-19 03:44:33.437
+16,Luna de Miel en Machu Picchu,Experiencia romántica de 5 días con hospedaje de lujo, cena a la luz de las velas y tren panorámico.,5,5,4,4500.00,2250.00,2,2,1,1,1,1,Activo,2026-06-19 03:44:33.437
+17,Escapada Romántica a Paracas,Tour de 3 días con cena en la playa, paseo en yate a las Islas Ballestas y hospedaje en resort.,5,3,2,1850.00,925.00,2,2,1,1,1,0,Promocion,2026-06-19 03:44:33.437
+18,Cusco Romántico - Ciudad Imperial,Experiencia de 4 días con cena en restaurante colonial, paseo en tren Hiram Bingham y Spa.,5,4,3,3200.00,1600.00,2,2,1,1,1,1,Activo,2026-06-19 03:44:33.437
+19,Ruta Gastronómica de Lima,Tour culinario de 3 días con visita a mercados, clases de cocina peruana y degustación en restaurantes top.,6,3,2,1650.00,420.00,2,10,1,1,1,1,Activo,2026-06-19 03:44:33.437
+20,Sabores del Norte - Trujillo y Chiclayo,Experiencia gastronómica de 4 días con ceviche norteño, cabrito, seco de chabelo y degustación de chicha.,6,4,3,1950.00,490.00,2,10,1,1,1,1,Activo,2026-06-19 03:44:33.437
+21,Cusco Gastronómico - Sabores Andinos,Tour de 3 días con cocina fusión andina, visita a mercados locales y taller de pachamanca.,6,3,2,1450.00,370.00,2,10,1,1,1,1,Promocion,2026-06-19 03:44:33.437
+22,Amazonía Sostenible - Tambopata,Experiencia ecológica de 5 días en lodge amazónico con observación de fauna, collpa de guacamayos y caminatas.,7,5,4,2600.00,650.00,2,10,1,1,1,1,Activo,2026-06-19 03:44:33.437
+23,Manu - Biodiversidad Pura,Aventura ecológica de 7 días en el Parque Nacional del Manu, con mayor biodiversidad del planeta.,7,7,6,4200.00,1050.00,2,8,1,1,1,1,Activo,2026-06-19 03:44:33.437
+24,Paracas Ecológico - Vida Marina,Tour de 3 días con visita a la Reserva Nacional, Islas Ballestas y proyecto de conservación de lobos marinos.,7,3,2,1350.00,340.00,2,12,1,1,1,1,Activo,2026-06-19 03:44:33.437
+25,Huascarán - Naturaleza Andina,Experiencia de 4 días en el Parque Nacional Huascarán con trekking, lagunas y observación de vicuñas.,7,4,3,1850.00,465.00,2,10,1,1,1,1,Promocion,2026-06-19 03:44:33.437
+26,Lima Executive - Business & Leisure,Paquete de 3 días con hospedaje 5 estrellas, transporte ejecutivo y city tour premium.,8,3,2,2800.00,700.00,1,4,1,1,1,1,Activo,2026-06-19 03:44:33.437
+27,Cusco Business - Cultura y Negocios,Experiencia de 4 días con hospedaje de lujo, sala de reuniones y visita a Machu Picchu.,8,4,3,3800.00,950.00,1,4,1,1,1,1,Activo,2026-06-19 03:44:33.437
+28,Arequipa Premium - Sillar y Negocios,Tour ejecutivo de 3 días con hospedaje en casona colonial, transporte VIP y visita al Colca.,8,3,2,2500.00,625.00,1,4,1,1,1,1,Promocion,2026-06-19 03:44:33.437
+29,Líneas de Nazca desde el Aire,Tour fotográfico de 2 días con sobrevuelo en avioneta y captura de los geoglifos.,9,2,1,950.00,240.00,2,8,1,1,0,1,Activo,2026-06-19 03:44:33.437
+30,Montaña de 7 Colores - Amanecer Fotográfico,Experiencia de 2 días con salida al amanecer para capturar los colores de Vinicunca.,9,2,1,750.00,190.00,2,10,1,1,0,1,Activo,2026-06-19 03:44:33.437
+31,Cusco Fotográfico - Patrimonio UNESCO,Tour de 4 días con guía fotógrafo profesional, visita a sitios icónicos y taller de fotografía.,9,4,3,2200.00,550.00,2,8,1,1,1,1,Activo,2026-06-19 03:44:33.437
+32,Camino Inca - Conexión Ancestral,Trekking espiritual de 4 días por el Camino Inca Clásico con ritual de pago a la tierra.,10,4,3,2800.00,700.00,2,8,1,1,1,1,Activo,2026-06-19 03:44:33.437
+33,Lago Titicaca Místico,Experiencia de 3 días en las islas sagradas con ceremonias andinas y conexión con Pachamama.,10,3,2,1450.00,365.00,2,10,1,1,1,1,Promocion,2026-06-19 03:44:33.437
+34,Chavín de Huántar - Origen Andino,Tour espiritual de 2 días al centro ceremonial más antiguo de los Andes con guía especializado.,10,2,1,850.00,215.00,2,10,1,1,1,1,Activo,2026-06-19 03:44:33.437
+35,Maratón de los Andes - Cusco,Paquete de 3 días para participar en maratón a 3,400 msnm con aclimatación y city tour.,11,3,2,1250.00,315.00,1,20,1,1,1,1,Activo,2026-06-19 03:44:33.437
+36,Surf en Máncora - Olas Perfectas,Experiencia de 4 días con clases de surf, hospedaje frente al mar y vida playera.,11,4,3,1650.00,415.00,2,10,1,1,1,0,Activo,2026-06-19 03:44:33.437
+37,Ciclismo en el Valle Sagrado,Tour de 3 días con rutas de ciclismo de montaña, visita a pueblos andinos y paisajes espectaculares.,11,3,2,1350.00,340.00,2,12,1,1,1,1,Promocion,2026-06-19 03:44:33.437
+38,Arqueología Viva - Norte Peruano,Tour educativo de 5 días con visitas a Sipán, Túcume y Tumbas Reales, ideal para estudiantes.,12,5,4,2200.00,550.00,5,20,1,1,1,1,Activo,2026-06-19 03:44:33.437
+39,Biodiversidad Amazónica - Manu,Expedición educativa de 6 días con biólogos, observación de fauna y flora, y charlas científicas.,12,6,5,3200.00,800.00,5,15,1,1,1,1,Activo,2026-06-19 03:44:33.437
+40,Cultura Viva - Cusco Educativo,Programa de 4 días con talleres de textiles, cerámica, quechua básico y visita a sitios incas.,12,4,3,1850.00,465.00,5,20,1,1,1,1,Promocion,2026-06-19 03:44:33.437
+41,Ruta del Pisco - Ica Vitivinícola,Tour temático de 3 días visitando haciendas, bodegas, viñedos y degustación de piscos premium.,13,3,2,1250.00,315.00,2,12,1,1,1,1,Activo,2026-06-19 03:44:33.437
+42,Carnaval de Cajamarca - Fiesta Nacional,Experiencia de 4 días durante el carnaval más famoso del Perú con comparsas, reinados y tradición.,13,4,3,1550.00,390.00,2,15,1,1,1,1,Activo,2026-06-19 03:44:33.437
+43,Ruta del Café - Selva Central,Tour temático de 3 días por Villa Rica con visita a fincas cafetaleras, catación y degustación.,13,3,2,1150.00,290.00,2,12,1,1,1,1,Promocion,2026-06-19 03:44:33.437
+44,Machu Picchu Express - 2 Días,Viaje rápido de 2 días con tren panorámico, visita guiada y regreso el mismo día.,14,2,1,1250.00,315.00,1,10,1,1,1,1,Activo,2026-06-19 03:44:33.437
+45,Lima Express - City Tour,Recorrido express de 1 día por los principales atractivos de Lima con almuerzo incluido.,14,1,0,350.00,90.00,1,15,0,1,1,1,Activo,2026-06-19 03:44:33.437
+46,Paracas Express - Fin de Semana,Escapada de 2 días a Paracas con Islas Ballestas, Reserva Nacional y Huacachina.,14,2,1,750.00,190.00,1,12,1,1,0,1,Promocion,2026-06-19 03:44:33.437
+47,Perú a tu Medida - 15 Días,Itinerario completamente personalizable que incluye Lima, Cusco, Arequipa, Puno y Amazonía.,15,15,14,8500.00,2125.00,1,6,1,1,1,1,Activo,2026-06-19 03:44:33.437
+48,Perú Premium - 10 Días,Tour exclusivo con hospedaje 5 estrellas, vuelos internos, guía privado y experiencias únicas.,15,10,9,6500.00,1625.00,1,4,1,1,1,1,Activo,2026-06-19 03:44:33.437
+49,Perú Esencial - 7 Días,Paquete personalizable con los destinos más icónicos: Lima, Cusco y Machu Picchu.,15,7,6,3800.00,950.00,1,8,1,1,1,1,Promocion,2026-06-19 03:44:33.437
+50,Perú Mágico - 20 Días,Experiencia completa de 20 días recorriendo la costa, sierra y selva con guía experto.,15,20,19,11000.00,2750.00,1,6,1,1,1,1,Activo,2026-06-19 03:44:33.437

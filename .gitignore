@@ -5,16 +5,6 @@ __pycache__/
 *.py[cod]
 .env
 
-# Generated reports and temporary data
-06_python/output/
-02_importacion_exportacion/datos/
-*.log
-
-# SQL Server backup exports can be large and may contain production data
-03_backups/*.bak
-03_backups/*.trn
-03_backups/*.bacpac
-!03_backups/.gitkeep
 
 # IDE and operating system files
 .vscode/

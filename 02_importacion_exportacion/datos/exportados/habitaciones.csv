@@ -1,0 +1,41 @@
+﻿id_habitacion,id_persona,id_alojamiento,numero_habitacion,id_tipo_habitacion,precio_noche,estado,descripcion
+1,36,1,101,8,280.00,Disponible,Habitación estándar con vista a la ciudad, cama king size y minibar.
+2,36,1,102,8,280.00,Ocupado,Habitación estándar con balcón privado y amenities premium.
+3,36,1,201,7,420.00,Disponible,Habitación deluxe con vista panorámica y jacuzzi.
+4,36,1,202,5,480.00,Disponible,Suite junior con sala de estar independiente y terraza.
+5,36,1,301,6,850.00,Disponible,Suite master con dos dormitorios, sala y comedor privado.
+6,36,1,401,10,1450.00,Mantenimiento,Suite presidencial con mayordomo personal y vista 360°.
+7,36,1,501,12,520.00,Ocupado,Habitación con vista privilegiada al mar y atardecer.
+8,36,1,502,2,320.00,Disponible,Habitación doble romántica con decoración especial.
+9,36,2,101,8,220.00,Disponible,Habitación estándar con aire acondicionado y WiFi.
+10,36,2,102,8,220.00,Disponible,Habitación estándar con vista parcial al mar.
+11,36,2,201,2,280.00,Ocupado,Habitación doble con cama matrimonial y balcón.
+12,36,2,202,7,380.00,Disponible,Habitación deluxe con terraza privada y vista al mar.
+13,36,2,301,5,450.00,Disponible,Suite junior con sala de estar y amenities premium.
+14,36,2,302,12,420.00,Mantenimiento,Habitación con vista panorámica al océano Pacífico.
+15,37,3,101,8,200.00,Disponible,Habitación estándar con vista a la montaña.
+16,37,3,102,1,150.00,Disponible,Habitación simple individual ideal para viajeros solos.
+17,37,3,201,2,260.00,Ocupado,Habitación doble con chimenea y vista al valle.
+18,37,3,202,3,320.00,Disponible,Habitación triple perfecta para familias pequeñas.
+19,37,3,301,14,350.00,Disponible,Cabaña rústica con vista a los Andes y fogata.
+20,37,3,302,5,420.00,Fuera_servicio,Suite junior con terraza y vista panorámica.
+21,37,4,101,8,300.00,Disponible,Habitación estándar en el corazón de Miraflores.
+22,37,4,102,7,450.00,Ocupado,Habitación deluxe con vista al Malecón y océano.
+23,37,4,201,5,520.00,Disponible,Suite junior con sala de estar y terraza privada.
+24,37,4,202,6,890.00,Disponible,Suite master con dos dormitorios y jacuzzi.
+25,37,4,301,10,1500.00,Disponible,Suite presidencial con servicio de mayordomo 24h.
+26,37,4,302,12,550.00,Ocupado,Habitación con vista espectacular al mar.
+27,37,4,401,15,380.00,Disponible,Habitación ejecutiva con escritorio y acceso a lounge.
+28,37,5,101,11,120.00,Disponible,Habitación económica con servicios básicos esenciales.
+29,37,5,102,8,180.00,Disponible,Habitación estándar con baño privado y TV.
+30,37,5,201,2,220.00,Ocupado,Habitación doble con decoración colonial auténtica.
+31,37,5,202,3,280.00,Disponible,Habitación triple ideal para grupos pequeños.
+32,37,5,301,9,350.00,Mantenimiento,Habitación familiar amplia con dos camas queen.
+33,38,6,101,8,160.00,Disponible,Habitación estándar cómoda para viajeros frecuentes.
+34,38,6,102,1,110.00,Disponible,Habitación simple individual con escritorio.
+35,38,6,201,2,200.00,Ocupado,Habitación doble con cama matrimonial y minibar.
+36,38,6,202,15,280.00,Disponible,Habitación ejecutiva con acceso a business center.
+37,38,7,101,11,90.00,Disponible,Habitación económica básica con cama doble.
+38,38,7,102,8,140.00,Ocupado,Habitación estándar con baño privado y ventilador.
+39,38,8,101,11,70.00,Disponible,Habitación económica esencial para presupuesto ajustado.
+40,38,8,102,11,70.00,Disponible,Habitación económica con cama individual y baño compartido.
