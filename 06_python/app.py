@@ -30,7 +30,7 @@ REPORT_QUERY = """
 SELECT
     cliente_id, cliente_nombre, reserva_id, fecha_reserva, estado_reserva,
     pago_id, monto_pago, medio_pago
-FROM dbo.vw_reporte_clientes_reservas_pagos;
+FROM EMTC_V4.vw_reporte_clientes_reservas_pagos;
 """
 REQUIRED_COLUMNS = {
     "cliente_id", "cliente_nombre", "reserva_id", "fecha_reserva",
@@ -186,7 +186,7 @@ def build_html(data: pd.DataFrame, demo: bool) -> str:
     if "monto_pago" in preview:
         preview["monto_pago"] = preview["monto_pago"].map(lambda value: money(float(value)) if pd.notna(value) else "")
     table = preview.to_html(index=False, classes="data", border=0, escape=True)
-    note = "Datos de demostracion: no representan la base de datos real." if demo else "Fuente: SQL Server, vista dbo.vw_reporte_clientes_reservas_pagos."
+    note = "Datos de demostracion: no representan la base de datos real." if demo else "Fuente: SQL Server, vista EMTC_V4.vw_reporte_clientes_reservas_pagos."
     generated = datetime.now().strftime("%Y-%m-%d %H:%M")
     return f"""<!doctype html>
 <html lang='es'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'>

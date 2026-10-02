@@ -32,7 +32,7 @@ evidencias/                     Capturas de la ejecucion real
 
 ## Instalacion y ejecucion
 
-Abra los archivos SQL en SSMS y ejecutelos con F5, sin activar el modo SQLCMD. Todos utilizan la base `TURISMOPERU_EMTC_V4` y el esquema `dbo`; las opciones configurables son variables T-SQL normales declaradas dentro de cada script.
+Abra los archivos SQL en SSMS y ejecutelos con F5, sin activar el modo SQLCMD. Todos utilizan la base `TURISMOPERU_EMTC_V4`; las tablas del negocio estan en el esquema `EMTC_V4` y las opciones configurables son variables T-SQL normales declaradas dentro de cada script.
 
 1. En `01_usuarios_roles/01_logins.sql`, complete las variables de contrasena para los logins nuevos en la ventana de consulta de SSMS y ejecute como administrador de instancia. Use contrasenas unicas y no guarde la copia con secretos en Git.
 2. Ejecute `01_usuarios_roles/02_users.sql`.
@@ -52,7 +52,7 @@ En SSMS, ajuste `@BackupPath` dentro de `03_backups/backup_full.sql` y `backup_d
 
 ## Reporte Python
 
-1. Ejecute `05_reportes/consultas_reportes.sql` para crear `dbo.vw_reporte_clientes_reservas_pagos`.
+1. Ejecute `05_reportes/consultas_reportes.sql` para crear `EMTC_V4.vw_reporte_clientes_reservas_pagos`.
 2. Siga los pasos de [06_python/README.md](06_python/README.md).
 3. Abra `06_python/output/reporte.html` y registre la captura con datos reales en `evidencias/reporte.png`.
 

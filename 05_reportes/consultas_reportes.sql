@@ -6,28 +6,30 @@
 USE [TURISMOPERU_EMTC_V4];
 GO
 
-CREATE OR ALTER VIEW dbo.vw_reporte_clientes_reservas_pagos
+CREATE OR ALTER VIEW EMTC_V4.vw_reporte_clientes_reservas_pagos
 AS
 SELECT
-    c.IdCliente AS cliente_id,
+    c.id_persona AS cliente_id,
     LTRIM(RTRIM(CONCAT(
-        ISNULL(p.Nombres, N''), N' ',
-        ISNULL(p.ApellidoPaterno, N''), N' ',
-        ISNULL(p.ApellidoMaterno, N'')
+        ISNULL(p.nombres, N''), N' ',
+        ISNULL(p.apaterno, N''), N' ',
+        ISNULL(p.amaterno, N'')
     ))) AS cliente_nombre,
-    r.IdReserva AS reserva_id,
-    r.FechaReserva AS fecha_reserva,
-    r.Estado AS estado_reserva,
-    pg.IdPago AS pago_id,
-    CAST(pg.Monto AS DECIMAL(18, 2)) AS monto_pago,
-    pg.MedioPago AS medio_pago
-FROM dbo.cliente AS c
-INNER JOIN dbo.persona AS p ON p.IdPersona = c.IdPersona
-LEFT JOIN dbo.reserva AS r ON r.IdCliente = c.IdCliente
-LEFT JOIN dbo.pago AS pg ON pg.IdReserva = r.IdReserva;
+    r.id_reserva AS reserva_id,
+    r.fecha_reserva AS fecha_reserva,
+    er.nombre AS estado_reserva,
+    pg.id_pago AS pago_id,
+    CAST(pg.monto AS DECIMAL(18, 2)) AS monto_pago,
+    mp.nombre AS medio_pago
+FROM EMTC_V4.cliente AS c
+INNER JOIN EMTC_V4.persona AS p ON p.id_persona = c.id_persona
+LEFT JOIN EMTC_V4.reserva AS r ON r.id_cliente = c.id_persona
+LEFT JOIN EMTC_V4.estado_reserva AS er ON er.id_estado_reserva = r.id_estado_reserva
+LEFT JOIN EMTC_V4.pago AS pg ON pg.id_reserva = r.id_reserva
+LEFT JOIN EMTC_V4.medio_pago AS mp ON mp.id_medio_pago = pg.id_medio_pago;
 GO
 
 SELECT TOP (20) *
-FROM dbo.vw_reporte_clientes_reservas_pagos
+FROM EMTC_V4.vw_reporte_clientes_reservas_pagos
 ORDER BY fecha_reserva DESC;
 GO
